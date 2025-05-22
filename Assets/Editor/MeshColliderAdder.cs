@@ -21,7 +21,7 @@ public class MeshColliderAdder
             if (child.GetComponent<MeshFilter>() != null && child.GetComponent<MeshCollider>() == null)
             {
                 MeshCollider collider = child.gameObject.AddComponent<MeshCollider>();
-                collider.convex = false; // 필요에 따라 true
+                collider.convex = false;
                 count++;
             }
         }

@@ -5,59 +5,28 @@ using UnityEngine.UIElements;
 public class Camera_move : MonoBehaviour
 {
     public GameObject Player;
-    int Camera_pos = 3;
+    public bool FirstPerspective = true;
+
+    public float Up_Distance = 1.5f;
+    public float Back_Distance = 3.0f;
+    public float LookAhead_Distance = 3.0f;
+
     void Start()
     {
         Player = GameObject.Find("Player");
         if (Player == null) print("no Player");
-        /*
-         *      0
-         *    3   1
-         *      2
-         */
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-            Camera_pos = 3;
-
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-            Camera_pos = 2;
-
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-            Camera_pos = 1;
-
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-            Camera_pos = 0;
-
-
-        switch (Camera_pos)
+        if (FirstPerspective)
         {
-            case 0:
-                transform.position = Player.transform.position
-                   + Player.transform.forward * 5.0f
-                   + Player.transform.up * 2.0f;
-                break;
-            case 1:
-                transform.position = Player.transform.position
-                   + Player.transform.right * -5.0f
-                   + Player.transform.up * 2.0f;
-                break;
-            case 2:
-                transform.position = Player.transform.position
-                   + Player.transform.forward * -5.0f
-                   + Player.transform.up * 2.0f;
-                break;
-            case 3:
-                transform.position = Player.transform.position
-                  + Player.transform.right * 5.0f
-                  + Player.transform.up * 2.0f;
-                break;
-        }
+            Vector3 offset = -Player.transform.forward * Back_Distance + Vector3.up * Up_Distance;
 
-        transform.LookAt(Player.transform);
-        Player.transform.forward = transform.forward;
+            transform.position = Player.transform.position + offset;
+
+            transform.LookAt(Player.transform.position + Player.transform.forward * LookAhead_Distance);
+        }
     }
 }
