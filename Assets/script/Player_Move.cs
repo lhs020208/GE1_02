@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Player_Move : MonoBehaviour
 {
+    PlayerStatusManager Status;
     public float accel = 5.0f;
     public float turnSpeed = 100.0f;
     public float maxForwardSpeed = 10.0f;
@@ -17,6 +18,7 @@ public class Player_Move : MonoBehaviour
 
     void Start()
     {
+        Status = GetComponent<PlayerStatusManager>();
         rb = GetComponent<Rigidbody>();
         if (rb == null)
         {
@@ -75,15 +77,48 @@ public class Player_Move : MonoBehaviour
         if (rb != null && moveDir != 0)
         {
             float currentSpeed = Vector3.Dot(rb.linearVelocity, transform.forward);
-            float targetAccel = mouseMoving ? mouseAccel : accel;
-            float targetMaxSpeed = mouseMoving ? mouseMaxForwardSpeed :
-                (moveDir == 1 ? maxForwardSpeed : maxBackwardSpeed);
 
-            if ((moveDir == 1 && currentSpeed < targetMaxSpeed) ||
-                (moveDir == -1 && currentSpeed > -targetMaxSpeed))
+            float targetAccel;
+            float targetMaxSpeed;
+
+            if (mouseMoving)
             {
-                rb.AddForce(transform.forward * targetAccel * moveDir, ForceMode.Acceleration);
+                targetAccel = mouseAccel;
+                targetMaxSpeed = mouseMaxForwardSpeed;
+            }
+            else
+            {
+                targetAccel = accel;
+
+                if (moveDir == 1)
+                {
+                    targetMaxSpeed = maxForwardSpeed;
+                }
+                else
+                {
+                    targetMaxSpeed = maxBackwardSpeed;
+                }
+            }
+
+            bool underMaxSpeed = false;
+
+            if (moveDir == 1 && currentSpeed < targetMaxSpeed)
+            {
+                underMaxSpeed = true;
+            }
+            else if (moveDir == -1 && currentSpeed > -targetMaxSpeed)
+            {
+                underMaxSpeed = true;
+            }
+
+            if (underMaxSpeed)
+            {
+                if (mouseMoving || Status.IsGrounded)
+                {
+                    rb.AddForce(transform.forward * targetAccel * moveDir, ForceMode.Acceleration);
+                }
             }
         }
+
     }
 }
