@@ -15,18 +15,6 @@ public class Player_Jump : MonoBehaviour
         {
             IsJumping = true;
         }
-
-        /*
-        if (Input.GetKeyDown(KeyCode.W))
-            moveDir = 1;
-        if (Input.GetKeyDown(KeyCode.S))
-            moveDir = -1;
-
-        if (Input.GetKeyUp(KeyCode.W))
-            moveDir = 0;
-        if (Input.GetKeyUp(KeyCode.S))
-            moveDir = 0;
-        */
     }
 
     void FixedUpdate()
@@ -39,7 +27,31 @@ public class Player_Jump : MonoBehaviour
             }
             else
             {
+                Vector3 PushV = Vector3.zero;
 
+                Vector3 forward = transform.forward;
+                Vector3 right = transform.right;
+
+                if (Status.PushW && Status.PushD)
+                    PushV = (forward + right).normalized * 0.5f;
+                else if (Status.PushW && Status.PushA)
+                    PushV = (forward - right).normalized * 0.5f;
+                else if (Status.PushS && Status.PushD)
+                    PushV = (-forward + right).normalized * 0.5f;
+                else if (Status.PushS && Status.PushA)
+                    PushV = (-forward - right).normalized * 0.5f;
+                else if (Status.PushW)
+                    PushV = forward * 0.5f;
+                else if (Status.PushS)
+                    PushV = -forward * 0.5f;
+                else if (Status.PushA)
+                    PushV = -right * 0.5f;
+                else if (Status.PushD)
+                    PushV = right * 0.5f;
+                else
+                    PushV = Vector3.up;
+
+                GetComponent<Rigidbody>().AddForce(PushV * JumpForce * 2f, ForceMode.Impulse);
             }
             IsJumping = false;
         }

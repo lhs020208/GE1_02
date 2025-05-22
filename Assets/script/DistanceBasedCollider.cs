@@ -4,7 +4,7 @@ public class DistanceBasedCollider : MonoBehaviour
 {
     public GameObject Player_OBJ;
     public Transform[] targets;
-    public float activateDistance = 50.0f;
+    public float activateDistance = 100.0f;
 
     private Collider col;
 
