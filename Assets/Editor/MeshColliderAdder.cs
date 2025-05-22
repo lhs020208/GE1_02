@@ -16,16 +16,25 @@ public class MeshColliderAdder
 
         int count = 0;
         Transform[] allChildren = root.GetComponentsInChildren<Transform>(true);
+
         foreach (Transform child in allChildren)
         {
+            // BoxCollider가 있다면 제거
+            BoxCollider box = child.GetComponent<BoxCollider>();
+            if (box != null)
+            {
+                Object.DestroyImmediate(box);
+            }
+
+            // MeshFilter가 있고, MeshCollider가 없다면 추가
             if (child.GetComponent<MeshFilter>() != null && child.GetComponent<MeshCollider>() == null)
             {
-                MeshCollider collider = child.gameObject.AddComponent<MeshCollider>();
-                collider.convex = false;
+                MeshCollider mesh = child.gameObject.AddComponent<MeshCollider>();
+                mesh.convex = false; // 필요에 따라 true 가능
                 count++;
             }
         }
 
-        Debug.Log($" MeshCollider가 추가된 오브젝트 수: {count}");
+        Debug.Log($" MeshCollider 추가 완료 (총 {count}개), 기존 BoxCollider는 제거됨");
     }
 }

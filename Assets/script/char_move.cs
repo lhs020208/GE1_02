@@ -2,60 +2,88 @@ using UnityEngine;
 
 public class char_move : MonoBehaviour
 {
-    float speed = 5.0f;
-    int move_x = 0;
-    int move_z = 0;
+    public float accel = 5.0f;
+    public float turnSpeed = 100.0f;
+    public float maxForwardSpeed = 10.0f;
+    public float maxBackwardSpeed = 5.0f;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public float mouseAccel = 10.0f;              // 좌클릭용 가속
+    public float mouseMaxForwardSpeed = 20.0f;   // 좌클릭용 최고속도
+
+    int moveDir = 0;
+    bool mouseMoving = false;
+
+    Rigidbody rb;
+
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody>();
+        if (rb == null)
+        {
+            Debug.LogError("Rigidbody가 없습니다");
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.W))
-            move_z = 1;
-        
-        if (Input.GetKeyDown(KeyCode.S))
-            move_z = -1;
+        // 좌클릭 시작
+        if (Input.GetMouseButtonDown(0))
+        {
+            mouseMoving = true;
+            moveDir = 1;
+        }
 
-        if (Input.GetKeyDown(KeyCode.A))
-            move_x = -1;
+        // 좌클릭 중단
+        if (Input.GetMouseButtonUp(0))
+        {
+            mouseMoving = false;
+            moveDir = 0;
+        }
 
-        if (Input.GetKeyDown(KeyCode.D))
-            move_x = 1;
+        // 좌클릭 중일 때는 W/S 무시
+        if (!mouseMoving)
+        {
+            if (Input.GetKeyDown(KeyCode.W) && moveDir == 0)
+                moveDir = 1;
+            if (Input.GetKeyDown(KeyCode.S) && moveDir == 0)
+                moveDir = -1;
 
-        if (Input.GetKeyUp(KeyCode.W))
-            move_z = 0;
+            if (Input.GetKeyUp(KeyCode.W) && moveDir == 1)
+                moveDir = 0;
+            if (Input.GetKeyUp(KeyCode.S) && moveDir == -1)
+                moveDir = 0;
+        }
+        else
+        {
+            // 좌클릭 중 W/S 입력 무시 + 강제로 W/S 해제
+            if ((Input.GetKeyUp(KeyCode.W) && moveDir == 1) ||
+                (Input.GetKeyUp(KeyCode.S) && moveDir == -1))
+            {
+                moveDir = 1; // 좌클릭이 우선이므로 유지
+            }
+        }
 
-        if (Input.GetKeyUp(KeyCode.S))
-            move_z = 0;
-
-        if (Input.GetKeyUp(KeyCode.A))
-            move_x = 0;
-
-        if (Input.GetKeyUp(KeyCode.D))
-            move_x = 0;
-
-
-        Vector3 input = new Vector3(move_x, 0, move_z).normalized;
-        Vector3 move = transform.TransformDirection(input);
-        move.y = 0;
-        transform.position += move * Time.deltaTime * speed;
-        transform.forward = new Vector3(0, 0, 1);
-
-
-        Vector3 pos = transform.position;
-        pos.y = Mathf.Ceil(pos.y * 100f) / 100f;
-        transform.position = pos;
+        // 회전
+        if (Input.GetKey(KeyCode.A))
+            transform.Rotate(0, -turnSpeed * Time.deltaTime, 0);
+        if (Input.GetKey(KeyCode.D))
+            transform.Rotate(0, turnSpeed * Time.deltaTime, 0);
     }
 
     void FixedUpdate()
     {
-        Rigidbody rb = GetComponent<Rigidbody>();
-        Vector3 velocity = rb.linearVelocity;
-        rb.linearVelocity = new Vector3(0, velocity.y, 0);
+        if (rb != null && moveDir != 0)
+        {
+            float currentSpeed = Vector3.Dot(rb.linearVelocity, transform.forward);
+            float targetAccel = mouseMoving ? mouseAccel : accel;
+            float targetMaxSpeed = mouseMoving ? mouseMaxForwardSpeed :
+                (moveDir == 1 ? maxForwardSpeed : maxBackwardSpeed);
+
+            if ((moveDir == 1 && currentSpeed < targetMaxSpeed) ||
+                (moveDir == -1 && currentSpeed > -targetMaxSpeed))
+            {
+                rb.AddForce(transform.forward * targetAccel * moveDir, ForceMode.Acceleration);
+            }
+        }
     }
 }

@@ -2,25 +2,46 @@ using UnityEngine;
 
 public class Player_reset : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private Vector3 initPosition;
+    private Quaternion initRotation;
+    private Rigidbody rb;
+
     void Start()
     {
-        
+        initPosition = transform.position;
+        initRotation = transform.rotation;
+        rb = GetComponent<Rigidbody>();
+        if (rb == null)
+        {
+            Debug.LogWarning("Rigidbody가 없습니다.");
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (transform.position.y <= 0.0f)
         {
-            transform.position = new Vector3(15, 7, 698);
+            ResetTransform();
         }
     }
+
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Water"))
         {
-            transform.position = new Vector3(15, 7, 698);
+            ResetTransform();
+        }
+    }
+
+    void ResetTransform()
+    {
+        transform.position = initPosition;
+        transform.rotation = initRotation;
+
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
         }
     }
 }
