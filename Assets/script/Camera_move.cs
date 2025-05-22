@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.LightTransport;
 using UnityEngine.UIElements;
 
-public class Camera_move : MonoBehaviour
+public class Camera_Move : MonoBehaviour
 {
     public GameObject Player;
     public bool FirstPerspective = true;

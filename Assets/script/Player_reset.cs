@@ -1,20 +1,27 @@
 using UnityEngine;
 
-public class Player_reset : MonoBehaviour
+public class Player_Reset : MonoBehaviour
 {
     private Vector3 initPosition;
     private Quaternion initRotation;
     private Rigidbody rb;
 
+    public GameObject Ceiling;
+    private Vector3 ceilingInitPosition;
+    private Quaternion ceilingInitRotation;
+
     void Start()
     {
         initPosition = transform.position;
         initRotation = transform.rotation;
-        rb = GetComponent<Rigidbody>();
-        if (rb == null)
+
+        if (Ceiling != null)
         {
-            Debug.LogWarning("Rigidbody가 없습니다.");
+            ceilingInitPosition = Ceiling.transform.position;
+            ceilingInitRotation = Ceiling.transform.rotation;
         }
+
+        rb = GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -42,6 +49,12 @@ public class Player_reset : MonoBehaviour
         {
             rb.linearVelocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
+        }
+
+        if (Ceiling != null)
+        {
+            Ceiling.transform.position = ceilingInitPosition;
+            Ceiling.transform.rotation = ceilingInitRotation;
         }
     }
 }
