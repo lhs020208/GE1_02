@@ -10,8 +10,12 @@ public class PlayerStatusManager : MonoBehaviour
     public bool PushQ = false;
     public bool PushE = false;
 
+    public GameObject CloseUFO;
+    public float closestDistance = Mathf.Infinity;
+    public GameObject[] allUFOs;
     void Start()
     {
+        allUFOs = GameObject.FindGameObjectsWithTag("UFO");
     }
 
     void Update()
@@ -40,6 +44,23 @@ public class PlayerStatusManager : MonoBehaviour
             PushE = true;
         if (Input.GetKeyUp(KeyCode.E))
             PushE = false;
+
+        CloseUFO = null;
+        closestDistance = Mathf.Infinity;
+
+        GameObject[] allUFOs = GameObject.FindGameObjectsWithTag("UFO");
+
+        foreach (GameObject ufo in allUFOs)
+        {
+            if (ufo == null) continue;
+
+            float distance = Vector3.Distance(transform.position, ufo.transform.position);
+            if (distance < closestDistance)
+            {
+                closestDistance = distance;
+                CloseUFO = ufo;
+            }
+        }
     }
     void OnCollisionStay(Collision collision)
     {

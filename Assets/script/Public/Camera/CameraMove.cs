@@ -25,23 +25,48 @@ public class CameraMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Status != null && Status.IsGrounded)
-        {
-            Vector3 playerForward = Player.transform.forward.normalized;
-            LastSaveForward = Vector3.RotateTowards(
-                LastSaveForward,
-                playerForward,
-                Time.deltaTime * 5f, // 회전 속도 조절 (값이 클수록 빠르게 회전)
-                0.0f
-            );
-        }
+        if (Input.GetKeyDown(KeyCode.Space))
+            FirstPerspective = !FirstPerspective;
+
         if (FirstPerspective)
         {
-            Vector3 offset = -LastSaveForward * Back_Distance + Vector3.up * Up_Distance;
-
+            if (Status != null && Status.IsGrounded)
+            {
+                Vector3 playerForward = Player.transform.forward.normalized;
+                LastSaveForward = Vector3.RotateTowards(
+                    LastSaveForward,
+                    playerForward,
+                    Time.deltaTime * 5f, // 회전 속도 조절 (값이 클수록 빠르게 회전)
+                    0.0f
+                );
+            }
+            Vector3 offset = -LastSaveForward * Back_Distance * 2 + Vector3.up * Up_Distance;
             transform.position = Player.transform.position + offset;
-
             transform.LookAt(Player.transform.position + LastSaveForward * LookAhead_Distance);
+        }
+        else
+        {
+            if (Status.CloseUFO != null)
+            {
+                Vector3 camOrigin = Player.transform.position + Vector3.up * Up_Distance;
+                Vector3 lookDirection;
+
+                UFOMoving UFOStatus = Status.CloseUFO.GetComponent<UFOMoving>();
+
+                if (UFOStatus.IsClose)
+                {
+                    lookDirection = (Status.CloseUFO.transform.position - camOrigin).normalized;
+                    transform.position = camOrigin - lookDirection * Back_Distance * 2;
+                    transform.LookAt(Status.CloseUFO.transform.position);
+                }
+                else
+                {
+                    lookDirection = (UFOStatus.center.position - camOrigin).normalized;
+                    transform.position = camOrigin - lookDirection * Back_Distance * 2;
+                    transform.LookAt(UFOStatus.center.position);
+                }
+
+            }
         }
     }
 }
