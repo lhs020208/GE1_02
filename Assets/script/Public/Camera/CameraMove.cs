@@ -13,13 +13,14 @@ public class CameraMove : MonoBehaviour
     public float LookAhead_Distance = 3.0f;
 
     Vector3 LastSaveForward;
-
+    Vector3 LastSaveLookDirection;
     void Start()
     {
         Player = GameObject.Find("Player");
         if (Player == null) print("no Player");
         Status = Player.GetComponent<PlayerStatusManager>();
         LastSaveForward = Player.transform.forward;
+        LastSaveLookDirection = Player.transform.forward;
     }
 
     // Update is called once per frame
@@ -46,26 +47,28 @@ public class CameraMove : MonoBehaviour
         }
         else
         {
+            LastSaveForward = Player.transform.forward;
             if (Status.CloseUFO != null)
             {
                 Vector3 camOrigin = Player.transform.position + Vector3.up * Up_Distance;
-                Vector3 lookDirection;
+                Vector3 targetDir;
 
                 UFOsStatusManager UFOStatus = Status.CloseUFO.GetComponent<UFOsStatusManager>();
 
                 if (!UFOStatus.CenterMoving)
-                {
-                    lookDirection = (Status.CloseUFO.transform.position - camOrigin).normalized;
-                    transform.position = camOrigin - lookDirection * Back_Distance * 2;
-                    transform.LookAt(Status.CloseUFO.transform.position);
-                }
+                    targetDir = (Status.CloseUFO.transform.position - camOrigin).normalized;
                 else
-                {
-                    lookDirection = (UFOStatus.center.position - camOrigin).normalized;
-                    transform.position = camOrigin - lookDirection * Back_Distance * 2;
-                    transform.LookAt(UFOStatus.center.position);
-                }
+                    targetDir = (UFOStatus.center.position - camOrigin).normalized;
 
+                LastSaveLookDirection = Vector3.RotateTowards(
+                    LastSaveLookDirection,
+                    targetDir,
+                    Time.deltaTime * 5f,
+                    0.0f
+                );
+
+                transform.position = camOrigin - LastSaveLookDirection * Back_Distance * 2;
+                transform.LookAt(camOrigin + LastSaveLookDirection * LookAhead_Distance);
             }
         }
     }

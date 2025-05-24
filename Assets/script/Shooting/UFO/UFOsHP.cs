@@ -6,6 +6,7 @@ public class UFOsHP : MonoBehaviour
     UFOsStatusManager UFOsStatus;
     public GameObject UFOsHPBar;
     public GameObject Player;
+    public GameObject Shrapnel;
 
     public float Height = 10.0f;
     public float BarSizse = 40.0f;
@@ -27,12 +28,26 @@ public class UFOsHP : MonoBehaviour
             UFOsHPBar.transform.position = new Vector3(transform.position.x + ((10 - HP) * 2), transform.position.y + Height, transform.position.z);
             UFOsHPBar.transform.LookAt(Player.transform.position);
         }
+        if (transform.position.y < 0.0f)
+        {
+            KillUFO();
+            for (int i = 0; i < 360; i++)
+            {
+                Instantiate(Shrapnel, transform.position, Quaternion.identity);
+            }
+            Destroy(gameObject);
+        }
+
     }
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag != "Player")
         {
-            if (UFOsHPBar != null) Destroy(UFOsHPBar);
+            KillUFO();
+            for (int i = 0; i < 360; i++)
+            {
+                Instantiate(Shrapnel, transform.position, Quaternion.identity);
+            }
             Destroy(gameObject);
         }
     }
@@ -51,11 +66,16 @@ public class UFOsHP : MonoBehaviour
         {
             if (UFOsHPBar != null)
             {
-                Destroy(UFOsHPBar);
-                UFOsStatus.rb.useGravity = true;
-                UFOsStatus.CenterMoving = false;
-                print("Break");
+                KillUFO();
             }
         }
     }
+    void KillUFO()
+    {
+        if (UFOsHPBar != null) Destroy(UFOsHPBar);
+        UFOsStatus.rb.useGravity = true;
+        UFOsStatus.CenterMoving = false;
+    }
 }
+
+

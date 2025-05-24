@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4379611517748022265}
   - component: {fileID: 7186177398572320475}
   - component: {fileID: 2708347557207461751}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: 'UFO '
   m_TagString: UFO
   m_Icon: {fileID: 0}
@@ -165,6 +165,7 @@ MonoBehaviour:
   HP: 10
   UFOsHPBar: {fileID: 0}
   Player: {fileID: 0}
+  Shrapnel: {fileID: 6086487838954467713, guid: ff18092e36846864e9eb9b71d3424e46, type: 3}
   Height: 10
   BarSizse: 40
 --- !u!65 &2708347557207461751

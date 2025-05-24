@@ -34,7 +34,7 @@ public class Player_Reset : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Water"))
+        if (collision.gameObject.tag == "Water")
         {
             ResetTransform();
         }

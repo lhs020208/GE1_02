@@ -7,6 +7,7 @@ TagManager:
   - Water
   - UFO
   - Bullet
+  - UFOS
   layers:
   - Default
   - TransparentFX
@@ -14,6 +15,7 @@ TagManager:
   - 
   - Water
   - UI
+  - Map UI
   - 
   - 
   - 
@@ -38,8 +40,7 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - UFO
   m_SortingLayers:
   - name: Default
     uniqueID: 0
