@@ -4,7 +4,7 @@ public class PlayerShoot : MonoBehaviour
 {
     public GameObject bullet;
     PlayerStatusManager Status;
-    public float shootForce = 1.0f;
+    public float shootForce = 10.0f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

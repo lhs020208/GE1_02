@@ -3,10 +3,8 @@ using UnityEngine;
 
 public class UFOMoving : MonoBehaviour
 {
-    Rigidbody rb;
-    PlayerStatusManager Status;
-    public Transform center; // 회전 중심
-    public GameObject Player;
+    PlayerStatusManager PlayerStatus;
+    UFOsStatusManager UFOsStatus;
 
     public float speed = 100f; // 초기 속도
     public float forceMagnitude = 200f; // 중심을 향한 구심력 세기
@@ -20,64 +18,88 @@ public class UFOMoving : MonoBehaviour
 
     void Start()
     {
-        Player = GameObject.Find("Player");
-        if (Player == null) print("no Player");
+        UFOsStatus = GetComponent<UFOsStatusManager>();
+        PlayerStatus = UFOsStatus.Player.GetComponent<PlayerStatusManager>();
 
-        rb = GetComponent<Rigidbody>();
-        rb.useGravity = false;
-        Status = Player.GetComponent<PlayerStatusManager>();
+        float randomY = Random.Range(0f, 360f);
+        transform.rotation = Quaternion.Euler(0f, randomY, 0f);
+
         Vector3 initialVelocity = transform.forward * speed;
 
-        if (center == null)
+        if (UFOsStatus.center == null)
         {
-            center = ComputeCenterFromVelocity(transform.position, initialVelocity, forceMagnitude, rb.mass);
+            UFOsStatus.center = ComputeCenterFromVelocity(transform.position, initialVelocity, forceMagnitude, UFOsStatus.rb.mass);
         }
         IsCloseChanged = false;
         prevIsClose = IsClose;
 
-        Vector3 tangent = Vector3.Cross(Vector3.up, (transform.position - center.position).normalized);
-        rb.linearVelocity = tangent * speed;
+        Vector3 tangent = Vector3.Cross(Vector3.up, (transform.position - UFOsStatus.center.position).normalized);
+        UFOsStatus.rb.linearVelocity = tangent * speed;
     }
     void Update()
     {
     }
     void FixedUpdate()
     {
-        DistancePlayerVsMe = Vector3.Distance(transform.position, Player.transform.position);
-        IsClose = DistancePlayerVsMe < SencerDistance;
-        IsCloseChanged = (IsClose != prevIsClose);
-
-        if (IsCloseChanged && !IsClose)
+        if (!UFOsStatus.rb.useGravity)
         {
-            Vector3 currentVelocity = rb.linearVelocity;
-            center = ComputeCenterFromVelocity(transform.position, currentVelocity, forceMagnitude, rb.mass);
-        }
+            DistancePlayerVsMe = Vector3.Distance(transform.position, UFOsStatus.Player.transform.position);
+            IsClose = DistancePlayerVsMe < SencerDistance;
+            IsCloseChanged = (IsClose != prevIsClose);
 
-        prevIsClose = IsClose;
-
-        if (IsClose)
-        {
-            if (Status.IsGrounded)
+            if (IsCloseChanged && !IsClose)
             {
-                Vector3 directionToPlayer = Player.transform.position - transform.position;
-                rb.AddForce(directionToPlayer * 50.0f, ForceMode.Force);
+                Vector3 currentVelocity = UFOsStatus.rb.linearVelocity;
+                UFOsStatus.center = ComputeCenterFromVelocity(transform.position, currentVelocity, forceMagnitude, UFOsStatus.rb.mass);
+            }
+
+            prevIsClose = IsClose;
+
+            if (IsClose)
+            {
+                if (!PlayerStatus.IsGrounded)
+                {
+                    Vector3 directionToPlayer = UFOsStatus.Player.transform.position - transform.position;
+                    UFOsStatus.rb.AddForce(directionToPlayer * 1.0f, ForceMode.Force);
+                    UFOsStatus.CenterMoving = false;
+                }
+            }
+            else
+            {
+                if (transform.position.z <= -80)
+                {
+                    UFOsStatus.rb.AddForce(Vector3.forward * 50.0f, ForceMode.Force);
+                    UFOsStatus.CenterMoving = false;
+                }
+                else if (transform.position.z >= 780)
+                {
+                    UFOsStatus.rb.AddForce(Vector3.back * 50.0f, ForceMode.Force);
+                    UFOsStatus.CenterMoving = false;
+                }
+                else if (transform.position.x <= -180)
+                {
+                    UFOsStatus.rb.AddForce(Vector3.right * 50.0f, ForceMode.Force);
+                    UFOsStatus.CenterMoving = false;
+                }
+                else if (transform.position.x >= 660)
+                {
+                    UFOsStatus.rb.AddForce(Vector3.left * 50.0f, ForceMode.Force);
+                    UFOsStatus.CenterMoving = false;
+                }
+                else
+                {
+                    Vector3 directionToCenter = (UFOsStatus.center.position - transform.position).normalized;
+                    UFOsStatus.rb.AddForce(directionToCenter * forceMagnitude, ForceMode.Force);
+                    UFOsStatus.CenterMoving = true;
+                }
             }
         }
         else
         {
-            if (transform.position.z <= -80)
-                rb.AddForce(Vector3.forward * 50.0f, ForceMode.Force);
-            else if (transform.position.z >= 780)
-                rb.AddForce(Vector3.back * 50.0f, ForceMode.Force);
-            else if (transform.position.x <= -180)
-                rb.AddForce(Vector3.right * 50.0f, ForceMode.Force);
-            else if (transform.position.x >= 660)
-                rb.AddForce(Vector3.left * 50.0f, ForceMode.Force);
-            else
-            {
-                Vector3 directionToCenter = (center.position - transform.position).normalized;
-                rb.AddForce(directionToCenter * forceMagnitude, ForceMode.Force);
-            }
+            UFOsStatus.rb.linearVelocity = new Vector3(
+                UFOsStatus.rb.linearVelocity.x * 1/2, 
+                UFOsStatus.rb.linearVelocity.y,
+                UFOsStatus.rb.linearVelocity.z * 1/2);
         }
     }
     Transform ComputeCenterFromVelocity(Vector3 position, Vector3 velocity, float forceMagnitude, float mass = 1f)

@@ -2,7 +2,10 @@ using UnityEngine;
 
 public class DistanceBasedCollider : MonoBehaviour
 {
+    /*
     public GameObject Player_OBJ;
+    public GameObject[] UFO = new GameObject[10];
+
     public Transform[] targets;
     public float activateDistance = 100.0f;
 
@@ -23,12 +26,21 @@ public class DistanceBasedCollider : MonoBehaviour
             this.enabled = false;
             return;
         }
-
-        Transform player = Player_OBJ.transform;
-        var colliders = Object.FindObjectsByType<DistanceBasedCollider>(FindObjectsSortMode.None);
-        foreach (var dbc in colliders)
+        for (int i = 0; i < 10; i ++)
         {
-            dbc.targets = new Transform[] { player };
+            UFO[i] = GameObject.Find("UFO (" + i + ")");
+            if (UFO[i] == null)
+            {
+                this.enabled = false;
+                return;
+            }
+        }
+
+        targets = new Transform[11];
+        targets[0] = Player_OBJ.transform;
+        for (int i = 0; i < 10; i++)
+        {
+            targets[i + 1] = UFO[i].transform;
         }
     }
 
@@ -48,4 +60,5 @@ public class DistanceBasedCollider : MonoBehaviour
 
         col.enabled = shouldEnable;
     }
+    */
 }

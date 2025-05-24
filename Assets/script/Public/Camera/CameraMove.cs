@@ -51,9 +51,9 @@ public class CameraMove : MonoBehaviour
                 Vector3 camOrigin = Player.transform.position + Vector3.up * Up_Distance;
                 Vector3 lookDirection;
 
-                UFOMoving UFOStatus = Status.CloseUFO.GetComponent<UFOMoving>();
+                UFOsStatusManager UFOStatus = Status.CloseUFO.GetComponent<UFOsStatusManager>();
 
-                if (UFOStatus.IsClose)
+                if (!UFOStatus.CenterMoving)
                 {
                     lookDirection = (Status.CloseUFO.transform.position - camOrigin).normalized;
                     transform.position = camOrigin - lookDirection * Back_Distance * 2;

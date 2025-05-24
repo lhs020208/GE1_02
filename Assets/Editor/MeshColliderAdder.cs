@@ -3,6 +3,7 @@ using UnityEditor;
 
 public class MeshColliderAdder
 {
+    /*
     [MenuItem("Tools/Add DistanceBasedCollider to all children")]
     public static void AddMeshColliders()
     {
@@ -29,4 +30,5 @@ public class MeshColliderAdder
 
         Debug.Log($"DistanceBasedCollider 추가 완료: {addedCount}개 오브젝트에 적용됨");
     }
+    */
 }
