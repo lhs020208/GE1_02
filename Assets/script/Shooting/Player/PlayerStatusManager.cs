@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerStatusManager : MonoBehaviour
 {
@@ -11,11 +12,16 @@ public class PlayerStatusManager : MonoBehaviour
     public bool PushE = false;
 
     public GameObject CloseUFO;
+    public GameObject SM;
+    public CheckUFOs checkufos;
+
     public float closestDistance = Mathf.Infinity;
     public GameObject[] allUFOs;
     void Start()
     {
         allUFOs = GameObject.FindGameObjectsWithTag("UFO");
+        SM = GameObject.Find("SceneManager");
+        checkufos = SM.GetComponent<CheckUFOs>();
     }
 
     void Update()

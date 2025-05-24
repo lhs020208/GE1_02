@@ -5,6 +5,7 @@ public class UFOMoving : MonoBehaviour
 {
     PlayerStatusManager PlayerStatus;
     UFOsStatusManager UFOsStatus;
+    GameObject centerObject;
 
     public float speed = 100f; // 초기 속도
     public float forceMagnitude = 200f; // 중심을 향한 구심력 세기
@@ -113,7 +114,8 @@ public class UFOMoving : MonoBehaviour
         Vector3 normal = Vector3.up;
         Vector3 centerDirection = Vector3.Cross(normal, velocity).normalized;
 
-        GameObject centerObject = new GameObject("ComputedCenter");
+        if (centerObject != null) Destroy(centerObject);
+        centerObject = new GameObject("ComputedCenter");
         centerObject.transform.position = position + centerDirection * radius;
 
         return centerObject.transform;

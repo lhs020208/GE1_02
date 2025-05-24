@@ -14,7 +14,7 @@ public class PlayerShoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift) && (Status.checkufos.cnt > 0))
         {
             GameObject newBullet = Instantiate(bullet, transform.position + transform.forward, Quaternion.identity);
 
