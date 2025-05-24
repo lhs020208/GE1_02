@@ -44,6 +44,7 @@ public class UFOsHP : MonoBehaviour
             if (other.gameObject.tag == "Bullet")
             {
                 HP--;
+                Destroy(other.gameObject);
             }
         }
         else
