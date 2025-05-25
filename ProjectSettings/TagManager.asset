@@ -8,11 +8,12 @@ TagManager:
   - UFO
   - Bullet
   - UFOS
+  - SavePoint
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Road
   - Water
   - UI
   - Map UI
