@@ -30,6 +30,10 @@ public class Player_Reset_R : MonoBehaviour
         {
             ResetTransform();
         }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            ResetTransform();
+        }
     }
 
     void OnTriggerEnter(Collider other)

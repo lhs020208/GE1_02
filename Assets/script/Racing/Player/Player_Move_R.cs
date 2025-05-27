@@ -61,6 +61,21 @@ public class Player_Move_R : MonoBehaviour
             }
         }
     }
+    void OnCollisionEnter(Collision collision)
+    {
+        if (rb != null)
+        {
+            rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
+        }
+    }
+
+    void OnCollisionExit(Collision collision)
+    {
+        if (rb != null)
+        {
+            //rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
+        }
+    }
 
     void FixedUpdate()
     {

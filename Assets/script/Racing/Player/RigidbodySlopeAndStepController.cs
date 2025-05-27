@@ -30,7 +30,7 @@ public class RigidbodySlopeAndStepController : MonoBehaviour
         RaycastHit hit;
         Vector3 origin = transform.position + Vector3.up * 0.1f;
 
-        if (Physics.Raycast(origin, Vector3.down, out hit, 1.2f, groundLayer))
+        if (Physics.Raycast(origin, Vector3.down, out hit, 0.3f, groundLayer))
         {
             float angle = Vector3.Angle(hit.normal, Vector3.up);
 
@@ -64,7 +64,7 @@ public class RigidbodySlopeAndStepController : MonoBehaviour
                 if (!Physics.Raycast(highOrigin, dir, stepCheckDistance, groundLayer))
                 {
                     // stepHeight만큼 살짝 들어올림
-                    rb.position += Vector3.up * stepHeight;
+                    rb.MovePosition(rb.position + Vector3.up * stepHeight);
                     break;
                 }
             }
