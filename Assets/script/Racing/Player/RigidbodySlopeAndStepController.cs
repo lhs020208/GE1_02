@@ -22,7 +22,7 @@ public class RigidbodySlopeAndStepController : MonoBehaviour
     void FixedUpdate()
     {
         HandleSlope();
-        HandleStepOffset();
+        //HandleStepOffset();
     }
 
     void HandleSlope()

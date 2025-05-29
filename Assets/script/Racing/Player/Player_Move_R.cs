@@ -65,7 +65,7 @@ public class Player_Move_R : MonoBehaviour
     {
         if (rb != null)
         {
-            rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
+            //rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
         }
     }
 

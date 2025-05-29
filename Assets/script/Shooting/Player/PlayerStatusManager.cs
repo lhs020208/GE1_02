@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class PlayerStatusManager : MonoBehaviour
@@ -10,6 +11,7 @@ public class PlayerStatusManager : MonoBehaviour
     public bool PushD = false;
     public bool PushQ = false;
     public bool PushE = false;
+    Vector2 move;
 
     public GameObject CloseUFO;
     public GameObject SM;
@@ -26,21 +28,21 @@ public class PlayerStatusManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.W))
+        if (move.y > 0)
             PushW = true;
-        if (Input.GetKeyUp(KeyCode.W))
-            PushW = false ;
-        if (Input.GetKeyDown(KeyCode.S))
+        else
+            PushW = false;
+        if (move.y < 0)
             PushS = true;
-        if (Input.GetKeyUp(KeyCode.S))
+        else
             PushS = false;
-        if (Input.GetKeyDown(KeyCode.A))
+        if (move.x < 0)
             PushA = true;
-        if (Input.GetKeyUp(KeyCode.A))
+        else
             PushA = false;
-        if (Input.GetKeyDown(KeyCode.D))
+        if (move.x > 0)
             PushD = true;
-        if (Input.GetKeyUp(KeyCode.D))
+        else
             PushD = false;
         if (Input.GetKeyDown(KeyCode.Q))
             PushQ = true;
@@ -84,5 +86,10 @@ public class PlayerStatusManager : MonoBehaviour
     void OnCollisionExit(Collision collision)
     {
         IsGrounded = false;
+    }
+
+    void OnMove(InputValue value)
+    {
+        move = value.Get<Vector2>();
     }
 }
