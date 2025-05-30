@@ -53,7 +53,9 @@ public class PlayerStatusManager : MonoBehaviour
             PushE = true;
         if (Input.GetKeyUp(KeyCode.E))
             PushE = false;
-
+        if (Input.GetKeyDown(KeyCode.O))
+            ShootType = (ShootType + 1) % 3;
+        
         CloseUFO = null;
         closestDistance = Mathf.Infinity;
 
