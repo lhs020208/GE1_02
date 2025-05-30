@@ -16,6 +16,7 @@ public class PlayerStatusManager : MonoBehaviour
     public GameObject CloseUFO;
     public GameObject SM;
     public CheckUFOs checkufos;
+    public int ShootType = 0;
 
     public float closestDistance = Mathf.Infinity;
     public GameObject[] allUFOs;

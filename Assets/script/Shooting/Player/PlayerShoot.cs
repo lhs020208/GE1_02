@@ -14,16 +14,33 @@ public class PlayerShoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift) && (Status.checkufos.cnt > 0))
+        if (Status.ShootType != 2)
         {
-            GameObject newBullet = Instantiate(bullet, transform.position + transform.forward, Quaternion.identity);
-
-            Rigidbody rb = newBullet.GetComponent<Rigidbody>();
-            if (rb != null)
+            if (Input.GetKeyDown(KeyCode.LeftShift) && (Status.checkufos.cnt > 0))
             {
-                Vector3 direction = (Status.CloseUFO.transform.position - transform.position).normalized;
-                rb.AddForce(direction * shootForce, ForceMode.Impulse);
+                shoot();
             }
+        }
+        else
+        {
+            if (Input.GetKey(KeyCode.LeftShift) && (Status.checkufos.cnt > 0))
+            {
+                shoot();
+            }
+        }
+    }
+
+    private void shoot()
+    {
+        GameObject newBullet = Instantiate(bullet, transform.position + transform.forward, Quaternion.identity);
+        Bullet bulletStatus = newBullet.GetComponent<Bullet>();
+        bulletStatus.CloseUFO = Status.CloseUFO;
+
+        Rigidbody rb = newBullet.GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            Vector3 direction = (Status.CloseUFO.transform.position - transform.position).normalized;
+            rb.AddForce(direction * shootForce, ForceMode.Impulse);
         }
     }
 }

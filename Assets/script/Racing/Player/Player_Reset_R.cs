@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class Player_Reset_R : MonoBehaviour
 {
-    private Vector3 initPosition;
-    private Quaternion initRotation;
-    private Rigidbody rb;
+    public Vector3 initPosition;
+    public Quaternion initRotation;
+    public Rigidbody rb;
 
     public GameObject Ceiling;
-    private Vector3 ceilingInitPosition;
-    private Quaternion ceilingInitRotation;
+    public Vector3 ceilingInitPosition;
+    public Quaternion ceilingInitRotation;
 
     void Start()
     {
@@ -35,22 +35,7 @@ public class Player_Reset_R : MonoBehaviour
             ResetTransform();
         }
     }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "SavePoint")
-        {
-            initPosition = transform.position;
-            initRotation = transform.rotation;
-
-            if (Ceiling != null)
-            {
-                ceilingInitPosition = Ceiling.transform.position;
-                ceilingInitRotation = Ceiling.transform.rotation;
-            }
-            Destroy(other.gameObject);
-        }
-    }
+     
 
     void ResetTransform()
     {
