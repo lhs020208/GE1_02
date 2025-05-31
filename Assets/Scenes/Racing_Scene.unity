@@ -1434,7 +1434,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1557110096931046661, guid: 8c7d000d8290b8a44906f65dafe811c4, type: 3}
       propertyPath: m_Name
-      value: SavePoint
+      value: SavePoint (1)
       objectReference: {fileID: 0}
     - target: {fileID: 8704311908509516578, guid: 8c7d000d8290b8a44906f65dafe811c4, type: 3}
       propertyPath: m_LocalScale.x
@@ -3065,7 +3065,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1557110096931046661, guid: 8c7d000d8290b8a44906f65dafe811c4, type: 3}
       propertyPath: m_Name
-      value: SavePoint (1)
+      value: SavePoint (3)
       objectReference: {fileID: 0}
     - target: {fileID: 8704311908509516578, guid: 8c7d000d8290b8a44906f65dafe811c4, type: 3}
       propertyPath: m_LocalScale.y
@@ -3758,7 +3758,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1557110096931046661, guid: 8c7d000d8290b8a44906f65dafe811c4, type: 3}
       propertyPath: m_Name
-      value: SavePoint (2)
+      value: SavePoint (4)
       objectReference: {fileID: 0}
     - target: {fileID: 8704311908509516578, guid: 8c7d000d8290b8a44906f65dafe811c4, type: 3}
       propertyPath: m_LocalScale.y
@@ -4241,6 +4241,9 @@ MonoBehaviour:
   PRR: {fileID: 0}
   rb: {fileID: 0}
   Dynamic: 0
+  SceneManager: {fileID: 0}
+  saveEditScript: {fileID: 0}
+  SaveNumber: 0
 --- !u!4 &1040404307 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5182663903817564024, guid: 97dcaadb5e1267849b141d5e57fde708, type: 3}
@@ -4719,6 +4722,9 @@ MonoBehaviour:
   PRR: {fileID: 0}
   rb: {fileID: 0}
   Dynamic: 0
+  SceneManager: {fileID: 0}
+  saveEditScript: {fileID: 0}
+  SaveNumber: 0
 --- !u!1001 &1208564058
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4729,7 +4735,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1557110096931046661, guid: 8c7d000d8290b8a44906f65dafe811c4, type: 3}
       propertyPath: m_Name
-      value: SavePoint (1)
+      value: SavePoint (2)
       objectReference: {fileID: 0}
     - target: {fileID: 8704311908509516578, guid: 8c7d000d8290b8a44906f65dafe811c4, type: 3}
       propertyPath: m_LocalScale.x
@@ -4812,6 +4818,9 @@ MonoBehaviour:
   PRR: {fileID: 0}
   rb: {fileID: 0}
   Dynamic: 0
+  SceneManager: {fileID: 0}
+  saveEditScript: {fileID: 0}
+  SaveNumber: 0
 --- !u!1001 &1244324160
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5335,7 +5344,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5182663903817564024, guid: 97dcaadb5e1267849b141d5e57fde708, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 215.3
+      value: 249
       objectReference: {fileID: 0}
     - target: {fileID: 5182663903817564024, guid: 97dcaadb5e1267849b141d5e57fde708, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6628,6 +6637,9 @@ MonoBehaviour:
   PRR: {fileID: 0}
   rb: {fileID: 0}
   Dynamic: 0
+  SceneManager: {fileID: 0}
+  saveEditScript: {fileID: 0}
+  SaveNumber: 0
 --- !u!4 &1733372697 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5182663903817564024, guid: 97dcaadb5e1267849b141d5e57fde708, type: 3}
@@ -6813,6 +6825,9 @@ MonoBehaviour:
   PRR: {fileID: 0}
   rb: {fileID: 0}
   Dynamic: 1
+  SceneManager: {fileID: 0}
+  saveEditScript: {fileID: 0}
+  SaveNumber: 0
 --- !u!1 &1919173412
 GameObject:
   m_ObjectHideFlags: 0
@@ -7252,6 +7267,64 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!1 &1947367480
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1947367482}
+  - component: {fileID: 1947367481}
+  m_Layer: 0
+  m_Name: SceneManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1947367481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947367480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c27c7b0b3a49fe64fa934ec40e8e1e43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 0}
+  SavePoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  SavePointsPos:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  NowSavePoint: 0
+--- !u!4 &1947367482
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947367480}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1949926375 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5991226ad898399438bb8953d224a020, type: 3}
@@ -8108,6 +8181,9 @@ MonoBehaviour:
   PRR: {fileID: 0}
   rb: {fileID: 0}
   Dynamic: 0
+  SceneManager: {fileID: 0}
+  saveEditScript: {fileID: 0}
+  SaveNumber: 0
 --- !u!4 &2092299422 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5182663903817564024, guid: 97dcaadb5e1267849b141d5e57fde708, type: 3}
@@ -8284,7 +8360,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1557110096931046661, guid: 8c7d000d8290b8a44906f65dafe811c4, type: 3}
       propertyPath: m_Name
-      value: SavePoint
+      value: SavePoint (0)
       objectReference: {fileID: 0}
     - target: {fileID: 8704311908509516578, guid: 8c7d000d8290b8a44906f65dafe811c4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8404,3 +8480,4 @@ SceneRoots:
   - {fileID: 2032011648}
   - {fileID: 1945812285}
   - {fileID: 1455895660}
+  - {fileID: 1947367482}
