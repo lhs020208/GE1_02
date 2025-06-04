@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class Player_Spin : MonoBehaviour
+public class PlayerSpinR : MonoBehaviour
 {
-    PlayerStatusManager Status;
+    RacingPlayerStatusManager Status;
     private Rigidbody rb;
     public float turnSpeed = 100.0f;
 
@@ -12,7 +12,7 @@ public class Player_Spin : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Status = GetComponent<PlayerStatusManager>();
+        Status = GetComponent<RacingPlayerStatusManager>();
         rb = GetComponent<Rigidbody>();
     }
 
@@ -38,7 +38,6 @@ public class Player_Spin : MonoBehaviour
         if (Status.PushE)
             transform.Rotate(0, 0, -turnSpeed * Time.deltaTime * 3);
 
-        // 지상 → 공중으로 넘어가는 프레임
         if (!Status.IsGrounded && wasGroundedLastFrame)
         {
             blockAirRotateW = Status.PushW;
@@ -63,7 +62,7 @@ public class Player_Spin : MonoBehaviour
         }
 
         wasGroundedLastFrame = Status.IsGrounded;
-        float dampingRate = 5f; // 클수록 더 빨리 줄어듦
+        float dampingRate = 5f;
         rb.angularVelocity = Vector3.Lerp(rb.angularVelocity, Vector3.zero, Time.deltaTime * dampingRate);
 
     }

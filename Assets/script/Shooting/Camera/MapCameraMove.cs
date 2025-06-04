@@ -3,8 +3,8 @@ using UnityEngine;
 public class MapCameraMove : MonoBehaviour
 {
     public GameObject Player;
-    public float Up_Distance = 5.0f; // 카메라의 Y축 위치 조정
-    public bool Minimap = true; // 미니맵 모드 여부
+    public float Up_Distance = 5.0f;
+    public bool Minimap = true;
     public Camera C;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

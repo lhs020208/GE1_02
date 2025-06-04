@@ -4,14 +4,16 @@ using UnityEngine.SceneManagement;
 
 public class PlayerStatusManager : MonoBehaviour
 {
-    public bool IsGrounded = false;
+    public bool IsContact = false;
     public bool PushW = false;
     public bool PushS = false;
     public bool PushA = false;
     public bool PushD = false;
     public bool PushQ = false;
     public bool PushE = false;
-    Vector2 move;
+    public bool ClickL = false;
+
+    Vector2 MoveBasedY;
 
     public GameObject CloseUFO;
     public GameObject SM;
@@ -29,22 +31,11 @@ public class PlayerStatusManager : MonoBehaviour
 
     void Update()
     {
-        if (move.y > 0)
-            PushW = true;
-        else
-            PushW = false;
-        if (move.y < 0)
-            PushS = true;
-        else
-            PushS = false;
-        if (move.x < 0)
-            PushA = true;
-        else
-            PushA = false;
-        if (move.x > 0)
-            PushD = true;
-        else
-            PushD = false;
+        PushW = MoveBasedY.y > 0;
+        PushS = MoveBasedY.y < 0;
+        PushA = MoveBasedY.x < 0;
+        PushD = MoveBasedY.x > 0;
+
         if (Input.GetKeyDown(KeyCode.Q))
             PushQ = true;
         if (Input.GetKeyUp(KeyCode.Q))
@@ -53,6 +44,12 @@ public class PlayerStatusManager : MonoBehaviour
             PushE = true;
         if (Input.GetKeyUp(KeyCode.E))
             PushE = false;
+        if (Input.GetMouseButtonDown(0))
+            ClickL = true;
+        if (Input.GetMouseButtonUp(0))
+            ClickL = false;
+
+
         if (Input.GetKeyDown(KeyCode.O))
             ShootType = (ShootType + 1) % 3;
         
@@ -77,22 +74,18 @@ public class PlayerStatusManager : MonoBehaviour
     {
         foreach (var contact in collision.contacts)
         {
-            if (contact.normal.y > 0.5f)
-            {
-                IsGrounded = true;
-                return;
-            }
+            IsContact = true;
+            return;
         }
-        IsGrounded = false;
     }
 
     void OnCollisionExit(Collision collision)
     {
-        IsGrounded = false;
+        IsContact = false;
     }
 
     void OnMove(InputValue value)
     {
-        move = value.Get<Vector2>();
+        MoveBasedY = value.Get<Vector2>();
     }
 }

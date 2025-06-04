@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Player_Reset : MonoBehaviour
+public class PlayerReset : MonoBehaviour
 {
     private Vector3 initPosition;
     private Quaternion initRotation;

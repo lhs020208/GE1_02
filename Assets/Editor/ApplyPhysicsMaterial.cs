@@ -3,56 +3,38 @@ using UnityEditor;
 
 public class ApplyPhysicsMaterial
 {
-    [MenuItem("Tools/Apply 'load' PhysicMaterial to all river_line")]
-    public static void ApplyLoadMaterialToRiverLine()
+    [MenuItem("Tools/Set Layer 'Road' to Objects Using Road PhysicMaterial")]
+    public static void SetLayerToRoadMaterialObjects()
     {
-        GameObject root = GameObject.Find("village");
-        if (root == null)
+        // 물리 머티리얼 로드
+        PhysicsMaterial roadMaterial = AssetDatabase.LoadAssetAtPath<PhysicsMaterial>("Assets/P_Material/Road.physicMaterial");
+        if (roadMaterial == null)
         {
-            Debug.LogError("village 오브젝트를 찾을 수 없습니다.");
+            Debug.LogError("Assets/P_Material/Road.physicMaterial 파일을 찾을 수 없습니다!");
             return;
         }
 
-        // 1. Physics Material 로드
-        PhysicsMaterial material = AssetDatabase.LoadAssetAtPath<PhysicsMaterial>("Assets/P_Material/Load.physicMaterial");
-        if (material == null)
+        int updatedCount = 0;
+        int roadLayer = LayerMask.NameToLayer("Road");
+
+        if (roadLayer == -1)
         {
-            Debug.LogError("Assets/P_Material/Load.physicMaterial 파일을 찾을 수 없습니다!");
+            Debug.LogError("'Road'라는 이름의 레이어가 존재하지 않습니다. 먼저 레이어를 프로젝트 설정에서 추가하세요.");
             return;
         }
 
-        int appliedCount = 0;
+        GameObject[] allObjects = Object.FindObjectsByType<GameObject>(FindObjectsSortMode.None);
 
-        // 2. city (0) ~ city (7) 반복
-        for (int i = 0; i <= 7; i++)
+        foreach (GameObject obj in allObjects)
         {
-            string cityName = $"city ({i})";
-            Transform city = root.transform.Find(cityName);
-            if (city == null)
+            Collider col = obj.GetComponent<Collider>();
+            if (col != null && col.sharedMaterial == roadMaterial)
             {
-                Debug.LogWarning($"{cityName} 을(를) 찾을 수 없습니다.");
-                continue;
-            }
-
-            Transform riverLine = city.Find("river_line");
-            if (riverLine == null)
-            {
-                Debug.LogWarning($"{cityName} 안에 'river_line' 오브젝트가 없습니다.");
-                continue;
-            }
-
-            // river_line 하위 오브젝트에 대해 적용
-            foreach (Transform child in riverLine.GetComponentsInChildren<Transform>(true))
-            {
-                Collider col = child.GetComponent<Collider>();
-                if (col != null)
-                {
-                    col.material = material;
-                    appliedCount++;
-                }
+                obj.layer = roadLayer;
+                updatedCount++;
             }
         }
 
-        Debug.Log($"'load' 물리 머티리얼이 적용된 Collider 수: {appliedCount}");
+        Debug.Log($"'Road' 물리 머티리얼을 사용하는 객체의 Layer를 'Road'로 변경한 수: {updatedCount}");
     }
 }

@@ -31,7 +31,7 @@ public class CameraMove : MonoBehaviour
 
         if (FirstPerspective)
         {
-            if (Status != null && Status.IsGrounded)
+            if (Status != null && Status.IsContact)
             {
                 Vector3 playerForward = Player.transform.forward.normalized;
                 LastSaveForward = Vector3.RotateTowards(

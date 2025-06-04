@@ -30,7 +30,44 @@ public class SaveEdit : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.O))
         {
+            NowSavePoint = (NowSavePoint + 4) % 5;
+            SavePoints[NowSavePoint].SetActive(true);
+            Player.transform.position = SavePointsPos[NowSavePoint];
+        }
+        if (Input.GetKeyDown(KeyCode.P))
+        {
             NowSavePoint = (NowSavePoint + 1) % 5;
+            SavePoints[NowSavePoint].SetActive(true);
+            Player.transform.position = SavePointsPos[NowSavePoint];
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            NowSavePoint = 0;
+            SavePoints[NowSavePoint].SetActive(true);
+            Player.transform.position = SavePointsPos[NowSavePoint];
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            NowSavePoint = 1;
+            SavePoints[NowSavePoint].SetActive(true);
+            Player.transform.position = SavePointsPos[NowSavePoint];
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            NowSavePoint = 2;
+            SavePoints[NowSavePoint].SetActive(true);
+            Player.transform.position = SavePointsPos[NowSavePoint];
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            NowSavePoint = 3;
+            SavePoints[NowSavePoint].SetActive(true);
+            Player.transform.position = SavePointsPos[NowSavePoint];
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            NowSavePoint = 4;
             SavePoints[NowSavePoint].SetActive(true);
             Player.transform.position = SavePointsPos[NowSavePoint];
         }

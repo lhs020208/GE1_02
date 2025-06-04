@@ -7,6 +7,7 @@ public class UFOsStatusManager : MonoBehaviour
     public Rigidbody rb;
     public bool CenterMoving = true;
     public Transform center;
+    public int HP;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -19,6 +20,7 @@ public class UFOsStatusManager : MonoBehaviour
             return;
         }
         rb = GetComponent<Rigidbody>();
+        HP = 10;
     }
 
     // Update is called once per frame

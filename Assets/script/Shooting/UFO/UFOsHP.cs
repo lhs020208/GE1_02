@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class UFOsHP : MonoBehaviour
 {
-    public int HP = 10;
     UFOsStatusManager UFOsStatus;
     public GameObject UFOsHPBar;
     public GameObject Player;
@@ -24,8 +23,8 @@ public class UFOsHP : MonoBehaviour
     {
         if (UFOsHPBar != null)
         {
-            UFOsHPBar.transform.localScale = new Vector3(BarSizse - ((10 - HP) * 4), 5.0f, 1.0f);
-            UFOsHPBar.transform.position = new Vector3(transform.position.x + ((10 - HP) * 2), transform.position.y + Height, transform.position.z);
+            UFOsHPBar.transform.localScale = new Vector3(BarSizse - ((10 - UFOsStatus.HP) * 4), 5.0f, 1.0f);
+            UFOsHPBar.transform.position = new Vector3(transform.position.x + ((10 - UFOsStatus.HP) * 2), transform.position.y + Height, transform.position.z);
             UFOsHPBar.transform.LookAt(Player.transform.position);
         }
         if (transform.position.y < 0.0f)
@@ -54,12 +53,11 @@ public class UFOsHP : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (HP > 0)
+        if (UFOsStatus.HP > 0)
         {
             if (other.gameObject.tag == "Bullet")
             {
-                HP--;
-                Destroy(other.gameObject);
+                UFOsStatus.HP--;
             }
         }
         else

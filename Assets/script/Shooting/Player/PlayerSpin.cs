@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class Player_Spin_R : MonoBehaviour
+public class PlayerSpin : MonoBehaviour
 {
-    RacingPlayerStatusManager Status;
+    PlayerStatusManager Status;
     private Rigidbody rb;
     public float turnSpeed = 100.0f;
 
@@ -12,7 +12,7 @@ public class Player_Spin_R : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Status = GetComponent<RacingPlayerStatusManager>();
+        Status = GetComponent<PlayerStatusManager>();
         rb = GetComponent<Rigidbody>();
     }
 
@@ -38,8 +38,7 @@ public class Player_Spin_R : MonoBehaviour
         if (Status.PushE)
             transform.Rotate(0, 0, -turnSpeed * Time.deltaTime * 3);
 
-        // 지상 → 공중으로 넘어가는 프레임
-        if (!Status.IsGrounded && wasGroundedLastFrame)
+        if (!Status.IsContact && wasGroundedLastFrame)
         {
             blockAirRotateW = Status.PushW;
             blockAirRotateS = Status.PushS;
@@ -50,8 +49,8 @@ public class Player_Spin_R : MonoBehaviour
             blockAirRotateS = false;
         }
 
-        bool canRotateW = !Status.IsGrounded && Status.PushW && !blockAirRotateW;
-        bool canRotateS = !Status.IsGrounded && Status.PushS && !blockAirRotateS;
+        bool canRotateW = !Status.IsContact && Status.PushW && !blockAirRotateW;
+        bool canRotateS = !Status.IsContact && Status.PushS && !blockAirRotateS;
 
         if (canRotateW)
         {
@@ -62,8 +61,8 @@ public class Player_Spin_R : MonoBehaviour
             transform.Rotate(-turnSpeed * Time.deltaTime * 3, 0, 0);
         }
 
-        wasGroundedLastFrame = Status.IsGrounded;
-        float dampingRate = 5f; // 클수록 더 빨리 줄어듦
+        wasGroundedLastFrame = Status.IsContact;
+        float dampingRate = 5f;
         rb.angularVelocity = Vector3.Lerp(rb.angularVelocity, Vector3.zero, Time.deltaTime * dampingRate);
 
     }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Player_Jump : MonoBehaviour
+public class PlayerJump : MonoBehaviour
 {
     PlayerStatusManager Status;
     bool IsJumping = false;
@@ -21,7 +21,7 @@ public class Player_Jump : MonoBehaviour
     {
         if (IsJumping)
         {
-            if (Status != null && Status.IsGrounded)
+            if (Status != null && Status.IsContact)
             {
                 GetComponent<Rigidbody>().AddForce(Vector3.up * JumpForce, ForceMode.Impulse);
             }
@@ -51,7 +51,7 @@ public class Player_Jump : MonoBehaviour
                 else
                     PushV = Vector3.up;
 
-                GetComponent<Rigidbody>().AddForce(PushV * JumpForce * 2f, ForceMode.Impulse);
+                GetComponent<Rigidbody>().AddForce(PushV * JumpForce, ForceMode.Impulse);
             }
             IsJumping = false;
         }

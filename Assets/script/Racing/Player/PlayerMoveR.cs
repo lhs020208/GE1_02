@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Player_Move_R : MonoBehaviour
+public class PlayerMoveR : MonoBehaviour
 {
     RacingPlayerStatusManager Status;
     public float accel = 10.0f;
@@ -59,21 +59,6 @@ public class Player_Move_R : MonoBehaviour
             {
                 moveDir = 1;
             }
-        }
-    }
-    void OnCollisionEnter(Collision collision)
-    {
-        if (rb != null)
-        {
-            //rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
-        }
-    }
-
-    void OnCollisionExit(Collision collision)
-    {
-        if (rb != null)
-        {
-            //rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
         }
     }
 

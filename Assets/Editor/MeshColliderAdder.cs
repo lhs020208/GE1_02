@@ -3,4 +3,5 @@ using UnityEditor;
 
 public class MeshColliderAdder
 {
+    
 }

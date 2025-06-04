@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 5157480080023105994}
   - component: {fileID: -8526034244834495874}
   - component: {fileID: -1393302415301747380}
-  m_Layer: 0
+  - component: {fileID: 9046047216457944106}
+  m_Layer: 30
   m_Name: Bullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -147,6 +148,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 21a1bab41984b8c4997555093ee186b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CloseUFO: {fileID: 0}
+  Player: {fileID: 0}
+  status: {fileID: 0}
+  rb: {fileID: 0}
+--- !u!114 &9046047216457944106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4948127064271472502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efd2ed14a54951b4c8ec51742f19df6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   distance: 2000

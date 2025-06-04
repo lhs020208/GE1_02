@@ -39,8 +39,8 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - Player
+  - Bullut
   - UFO
   m_SortingLayers:
   - name: Default

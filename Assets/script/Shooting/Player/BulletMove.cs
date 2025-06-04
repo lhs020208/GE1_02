@@ -1,10 +1,8 @@
 using UnityEngine;
 using UnityEngine.Animations;
 
-public class Bullet : MonoBehaviour
+public class BulletMove : MonoBehaviour
 {
-    int timer = 0;
-    public int distance = 2000;
     public GameObject CloseUFO;
     public GameObject Player;
     public PlayerStatusManager status;
@@ -30,18 +28,7 @@ public class Bullet : MonoBehaviour
                 rb.linearVelocity = toTarget * speed;
             }
         }
-        timer++;
-        if (timer >= distance)
-        {
-            Destroy(gameObject);
-        }
     }
 
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag != "Player")
-        {
-            Destroy(gameObject);
-        }
-    }
+    
 }

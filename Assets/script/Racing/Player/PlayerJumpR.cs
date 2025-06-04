@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Player_Jump_R : MonoBehaviour
+public class PlayerJumpR : MonoBehaviour
 {
     RacingPlayerStatusManager Status;
     bool IsJumping = false;

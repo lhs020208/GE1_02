@@ -58,7 +58,7 @@ public class UFOMoving : MonoBehaviour
 
             if (IsClose)
             {
-                if (!PlayerStatus.IsGrounded)
+                if (!PlayerStatus.IsContact)
                 {
                     Vector3 directionToPlayer = UFOsStatus.Player.transform.position - transform.position;
                     UFOsStatus.rb.AddForce(directionToPlayer * 1.0f, ForceMode.Force);

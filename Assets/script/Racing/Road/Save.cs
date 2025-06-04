@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class Save : MonoBehaviour
 {
     public GameObject Player;
-    public Player_Reset_R PRR;
+    public PlayerResetR PRR;
     public Rigidbody rb;
     public bool Dynamic = false;
 
@@ -19,7 +19,7 @@ public class Save : MonoBehaviour
         SceneManager = GameObject.Find("SceneManager");
         saveEditScript = SceneManager.GetComponent<SaveEdit>();
         rb = Player.GetComponent<Rigidbody>();
-        PRR = Player.GetComponent<Player_Reset_R>();
+        PRR = Player.GetComponent<PlayerResetR>();
 
         string name = gameObject.name;
         int start = name.IndexOf('(');

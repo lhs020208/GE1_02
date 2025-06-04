@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Player_Move : MonoBehaviour
+public class PlayerMove : MonoBehaviour
 {
     PlayerStatusManager Status;
     public float accel = 10.0f;
@@ -27,13 +27,13 @@ public class Player_Move : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Status.ClickL)
         {
             mouseMoving = true;
             moveDir = 1;
         }
 
-        if (Input.GetMouseButtonUp(0))
+        if (!Status.ClickL)
         {
             mouseMoving = false;
             moveDir = 0;
@@ -102,7 +102,7 @@ public class Player_Move : MonoBehaviour
 
             if (underMaxSpeed)
             {
-                if (mouseMoving || Status.IsGrounded)
+                if (mouseMoving || Status.IsContact)
                 {
                     rb.AddForce(transform.forward * targetAccel * moveDir, ForceMode.Acceleration);
                 }

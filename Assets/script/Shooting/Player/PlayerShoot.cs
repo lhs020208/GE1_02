@@ -33,7 +33,7 @@ public class PlayerShoot : MonoBehaviour
     private void shoot()
     {
         GameObject newBullet = Instantiate(bullet, transform.position + transform.forward, Quaternion.identity);
-        Bullet bulletStatus = newBullet.GetComponent<Bullet>();
+        BulletMove bulletStatus = newBullet.GetComponent<BulletMove>();
         bulletStatus.CloseUFO = Status.CloseUFO;
 
         Rigidbody rb = newBullet.GetComponent<Rigidbody>();
