@@ -23,7 +23,7 @@ public class UFOsHP : MonoBehaviour
     {
         if (UFOsHPBar != null)
         {
-            UFOsHPBar.transform.localScale = new Vector3(BarSizse - ((10 - UFOsStatus.HP) * 4), 5.0f, 1.0f);
+            UFOsHPBar.transform.localScale = new Vector3(UFOsStatus.HP * 0.1f, 1.0f, 1.0f);
             UFOsHPBar.transform.position = new Vector3(transform.position.x + ((10 - UFOsStatus.HP) * 2), transform.position.y + Height, transform.position.z);
             UFOsHPBar.transform.LookAt(Player.transform.position);
         }

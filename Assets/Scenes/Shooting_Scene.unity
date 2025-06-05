@@ -14197,11 +14197,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1316352747936045904, guid: 3cebe1768f4c06544baba32103d1c323, type: 3}
       propertyPath: m_LocalScale.x
-      value: 40
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1316352747936045904, guid: 3cebe1768f4c06544baba32103d1c323, type: 3}
       propertyPath: m_LocalScale.y
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1316352747936045904, guid: 3cebe1768f4c06544baba32103d1c323, type: 3}
       propertyPath: m_LocalScale.z
@@ -14251,6 +14251,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HPBar
       objectReference: {fileID: 0}
+    - target: {fileID: 8714561736090678001, guid: 3cebe1768f4c06544baba32103d1c323, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -2432090755550338912, guid: c8d7581a05f42b64daf1dbb4ca39c5db, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -44679,11 +44683,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1316352747936045904, guid: 3cebe1768f4c06544baba32103d1c323, type: 3}
       propertyPath: m_LocalScale.x
-      value: 40
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1316352747936045904, guid: 3cebe1768f4c06544baba32103d1c323, type: 3}
       propertyPath: m_LocalScale.y
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1316352747936045904, guid: 3cebe1768f4c06544baba32103d1c323, type: 3}
       propertyPath: m_LocalScale.z
@@ -44733,6 +44737,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HPBar
       objectReference: {fileID: 0}
+    - target: {fileID: 8714561736090678001, guid: 3cebe1768f4c06544baba32103d1c323, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -2432090755550338912, guid: c8d7581a05f42b64daf1dbb4ca39c5db, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -73382,11 +73390,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1316352747936045904, guid: 3cebe1768f4c06544baba32103d1c323, type: 3}
       propertyPath: m_LocalScale.x
-      value: 40
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1316352747936045904, guid: 3cebe1768f4c06544baba32103d1c323, type: 3}
       propertyPath: m_LocalScale.y
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1316352747936045904, guid: 3cebe1768f4c06544baba32103d1c323, type: 3}
       propertyPath: m_LocalScale.z
@@ -73436,6 +73444,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HPBar
       objectReference: {fileID: 0}
+    - target: {fileID: 8714561736090678001, guid: 3cebe1768f4c06544baba32103d1c323, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -2432090755550338912, guid: c8d7581a05f42b64daf1dbb4ca39c5db, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -140427,11 +140439,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1316352747936045904, guid: 3cebe1768f4c06544baba32103d1c323, type: 3}
       propertyPath: m_LocalScale.x
-      value: 40
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1316352747936045904, guid: 3cebe1768f4c06544baba32103d1c323, type: 3}
       propertyPath: m_LocalScale.y
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1316352747936045904, guid: 3cebe1768f4c06544baba32103d1c323, type: 3}
       propertyPath: m_LocalScale.z
@@ -140481,6 +140493,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HPBar
       objectReference: {fileID: 0}
+    - target: {fileID: 8714561736090678001, guid: 3cebe1768f4c06544baba32103d1c323, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -2432090755550338912, guid: c8d7581a05f42b64daf1dbb4ca39c5db, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -149203,11 +149219,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1316352747936045904, guid: 3cebe1768f4c06544baba32103d1c323, type: 3}
       propertyPath: m_LocalScale.x
-      value: 40
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1316352747936045904, guid: 3cebe1768f4c06544baba32103d1c323, type: 3}
       propertyPath: m_LocalScale.y
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1316352747936045904, guid: 3cebe1768f4c06544baba32103d1c323, type: 3}
       propertyPath: m_LocalScale.z
@@ -149257,6 +149273,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HPBar
       objectReference: {fileID: 0}
+    - target: {fileID: 8714561736090678001, guid: 3cebe1768f4c06544baba32103d1c323, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -2432090755550338912, guid: c8d7581a05f42b64daf1dbb4ca39c5db, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -183829,11 +183849,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1316352747936045904, guid: 3cebe1768f4c06544baba32103d1c323, type: 3}
       propertyPath: m_LocalScale.x
-      value: 40
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1316352747936045904, guid: 3cebe1768f4c06544baba32103d1c323, type: 3}
       propertyPath: m_LocalScale.y
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1316352747936045904, guid: 3cebe1768f4c06544baba32103d1c323, type: 3}
       propertyPath: m_LocalScale.z
@@ -183883,6 +183903,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HPBar
       objectReference: {fileID: 0}
+    - target: {fileID: 8714561736090678001, guid: 3cebe1768f4c06544baba32103d1c323, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -2432090755550338912, guid: c8d7581a05f42b64daf1dbb4ca39c5db, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -243639,11 +243663,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1316352747936045904, guid: 3cebe1768f4c06544baba32103d1c323, type: 3}
       propertyPath: m_LocalScale.x
-      value: 40
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1316352747936045904, guid: 3cebe1768f4c06544baba32103d1c323, type: 3}
       propertyPath: m_LocalScale.y
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1316352747936045904, guid: 3cebe1768f4c06544baba32103d1c323, type: 3}
       propertyPath: m_LocalScale.z
@@ -243693,6 +243717,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HPBar
       objectReference: {fileID: 0}
+    - target: {fileID: 8714561736090678001, guid: 3cebe1768f4c06544baba32103d1c323, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -2432090755550338912, guid: c8d7581a05f42b64daf1dbb4ca39c5db, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -295010,11 +295038,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1316352747936045904, guid: 3cebe1768f4c06544baba32103d1c323, type: 3}
       propertyPath: m_LocalScale.x
-      value: 40
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1316352747936045904, guid: 3cebe1768f4c06544baba32103d1c323, type: 3}
       propertyPath: m_LocalScale.y
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1316352747936045904, guid: 3cebe1768f4c06544baba32103d1c323, type: 3}
       propertyPath: m_LocalScale.z
@@ -295064,6 +295092,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HPBar
       objectReference: {fileID: 0}
+    - target: {fileID: 8714561736090678001, guid: 3cebe1768f4c06544baba32103d1c323, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -2432090755550338912, guid: c8d7581a05f42b64daf1dbb4ca39c5db, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -302640,11 +302672,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1316352747936045904, guid: 3cebe1768f4c06544baba32103d1c323, type: 3}
       propertyPath: m_LocalScale.x
-      value: 40
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1316352747936045904, guid: 3cebe1768f4c06544baba32103d1c323, type: 3}
       propertyPath: m_LocalScale.y
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1316352747936045904, guid: 3cebe1768f4c06544baba32103d1c323, type: 3}
       propertyPath: m_LocalScale.z
@@ -302694,6 +302726,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HPBar
       objectReference: {fileID: 0}
+    - target: {fileID: 8714561736090678001, guid: 3cebe1768f4c06544baba32103d1c323, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -2432090755550338912, guid: c8d7581a05f42b64daf1dbb4ca39c5db, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -352179,11 +352215,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1316352747936045904, guid: 3cebe1768f4c06544baba32103d1c323, type: 3}
       propertyPath: m_LocalScale.x
-      value: 40
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1316352747936045904, guid: 3cebe1768f4c06544baba32103d1c323, type: 3}
       propertyPath: m_LocalScale.y
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1316352747936045904, guid: 3cebe1768f4c06544baba32103d1c323, type: 3}
       propertyPath: m_LocalScale.z
@@ -352233,6 +352269,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HPBar
       objectReference: {fileID: 0}
+    - target: {fileID: 8714561736090678001, guid: 3cebe1768f4c06544baba32103d1c323, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -2432090755550338912, guid: c8d7581a05f42b64daf1dbb4ca39c5db, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
