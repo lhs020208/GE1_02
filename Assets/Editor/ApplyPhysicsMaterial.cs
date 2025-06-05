@@ -3,38 +3,32 @@ using UnityEditor;
 
 public class ApplyPhysicsMaterial
 {
-    [MenuItem("Tools/Set Layer 'Road' to Objects Using Road PhysicMaterial")]
-    public static void SetLayerToRoadMaterialObjects()
+    [MenuItem("Tools/Apply 'NormalObj' Material to all MeshColliders with no material")]
+    public static void ApplyNormalMaterialToMeshColliders()
     {
         // 물리 머티리얼 로드
-        PhysicsMaterial roadMaterial = AssetDatabase.LoadAssetAtPath<PhysicsMaterial>("Assets/P_Material/Road.physicMaterial");
-        if (roadMaterial == null)
+        PhysicsMaterial material = AssetDatabase.LoadAssetAtPath<PhysicsMaterial>("Assets/P_Material/NormalObj.physicMaterial");
+        if (material == null)
         {
-            Debug.LogError("Assets/P_Material/Road.physicMaterial 파일을 찾을 수 없습니다!");
+            Debug.LogError("Assets/P_Material/NormalObj.physicMaterial 파일을 찾을 수 없습니다!");
             return;
         }
 
-        int updatedCount = 0;
-        int roadLayer = LayerMask.NameToLayer("Road");
+        int appliedCount = 0;
 
-        if (roadLayer == -1)
-        {
-            Debug.LogError("'Road'라는 이름의 레이어가 존재하지 않습니다. 먼저 레이어를 프로젝트 설정에서 추가하세요.");
-            return;
-        }
-
+        // 최신 API 사용 (정렬 없음 → 더 빠름)
         GameObject[] allObjects = Object.FindObjectsByType<GameObject>(FindObjectsSortMode.None);
 
         foreach (GameObject obj in allObjects)
         {
-            Collider col = obj.GetComponent<Collider>();
-            if (col != null && col.sharedMaterial == roadMaterial)
+            BoxCollider meshCol = obj.GetComponent<BoxCollider>();
+            if (meshCol != null && meshCol.sharedMaterial == null)
             {
-                obj.layer = roadLayer;
-                updatedCount++;
+                meshCol.sharedMaterial = material;
+                appliedCount++;
             }
         }
 
-        Debug.Log($"'Road' 물리 머티리얼을 사용하는 객체의 Layer를 'Road'로 변경한 수: {updatedCount}");
+        Debug.Log($"MeshCollider에 'NormalObj' 물리 머티리얼이 적용된 수: {appliedCount}");
     }
 }
