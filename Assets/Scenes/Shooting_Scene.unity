@@ -15511,6 +15511,10 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 13400000, guid: 7b057cd8de981f74097e85bd4870a529, type: 2}
+    - target: {fileID: 3489539086585915672, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -2432090755550338912, guid: ca4f25066f7646f4aabb75cb4f6159c7, type: 3}
     - target: {fileID: 5230614685329924451, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
       propertyPath: m_Name
       value: UFO (1)
@@ -15527,6 +15531,18 @@ PrefabInstance:
       propertyPath: UFOsHPBar
       value: 
       objectReference: {fileID: 1938909470}
+    - target: {fileID: 8549568008195313840, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8549568008195313840, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8549568008195313840, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8549568008195313840, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
       propertyPath: m_LocalPosition.x
       value: -312.74387
@@ -33818,6 +33834,10 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 13400000, guid: 7b057cd8de981f74097e85bd4870a529, type: 2}
+    - target: {fileID: 3489539086585915672, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -2432090755550338912, guid: ca4f25066f7646f4aabb75cb4f6159c7, type: 3}
     - target: {fileID: 5230614685329924451, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
       propertyPath: m_Name
       value: UFO (5)
@@ -33834,6 +33854,18 @@ PrefabInstance:
       propertyPath: UFOsHPBar
       value: 
       objectReference: {fileID: 1645832354}
+    - target: {fileID: 8549568008195313840, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8549568008195313840, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8549568008195313840, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8549568008195313840, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
       propertyPath: m_LocalPosition.x
       value: 71.256134
@@ -87205,6 +87237,10 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 13400000, guid: 7b057cd8de981f74097e85bd4870a529, type: 2}
+    - target: {fileID: 3489539086585915672, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -2432090755550338912, guid: ca4f25066f7646f4aabb75cb4f6159c7, type: 3}
     - target: {fileID: 5230614685329924451, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
       propertyPath: m_Name
       value: UFO (7)
@@ -87221,6 +87257,18 @@ PrefabInstance:
       propertyPath: UFOsHPBar
       value: 
       objectReference: {fileID: 928723200}
+    - target: {fileID: 8549568008195313840, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8549568008195313840, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8549568008195313840, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8549568008195313840, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
       propertyPath: m_LocalPosition.x
       value: -306.74387
@@ -97182,6 +97230,10 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 13400000, guid: 7b057cd8de981f74097e85bd4870a529, type: 2}
+    - target: {fileID: 3489539086585915672, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -2432090755550338912, guid: ca4f25066f7646f4aabb75cb4f6159c7, type: 3}
     - target: {fileID: 5230614685329924451, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
       propertyPath: m_Name
       value: UFO (6)
@@ -97198,6 +97250,18 @@ PrefabInstance:
       propertyPath: UFOsHPBar
       value: 
       objectReference: {fileID: 1931666968}
+    - target: {fileID: 8549568008195313840, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8549568008195313840, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8549568008195313840, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8549568008195313840, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
       propertyPath: m_LocalPosition.x
       value: -114.743866
@@ -180880,6 +180944,10 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 13400000, guid: 7b057cd8de981f74097e85bd4870a529, type: 2}
+    - target: {fileID: 3489539086585915672, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -2432090755550338912, guid: ca4f25066f7646f4aabb75cb4f6159c7, type: 3}
     - target: {fileID: 5230614685329924451, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
       propertyPath: m_Name
       value: UFO (8)
@@ -180896,6 +180964,18 @@ PrefabInstance:
       propertyPath: UFOsHPBar
       value: 
       objectReference: {fileID: 1122901340}
+    - target: {fileID: 8549568008195313840, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8549568008195313840, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8549568008195313840, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8549568008195313840, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
       propertyPath: m_LocalPosition.x
       value: 72.256134
@@ -226785,6 +226865,10 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 13400000, guid: 7b057cd8de981f74097e85bd4870a529, type: 2}
+    - target: {fileID: 3489539086585915672, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -2432090755550338912, guid: ca4f25066f7646f4aabb75cb4f6159c7, type: 3}
     - target: {fileID: 5230614685329924451, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
       propertyPath: m_Name
       value: UFO (3)
@@ -226801,6 +226885,18 @@ PrefabInstance:
       propertyPath: UFOsHPBar
       value: 
       objectReference: {fileID: 1049781604}
+    - target: {fileID: 8549568008195313840, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8549568008195313840, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8549568008195313840, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8549568008195313840, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
       propertyPath: m_LocalPosition.x
       value: -114.743866
@@ -268616,6 +268712,10 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 13400000, guid: 7b057cd8de981f74097e85bd4870a529, type: 2}
+    - target: {fileID: 3489539086585915672, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -2432090755550338912, guid: ca4f25066f7646f4aabb75cb4f6159c7, type: 3}
     - target: {fileID: 5230614685329924451, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
       propertyPath: m_Name
       value: UFO (4)
@@ -268632,6 +268732,18 @@ PrefabInstance:
       propertyPath: UFOsHPBar
       value: 
       objectReference: {fileID: 1353686336}
+    - target: {fileID: 8549568008195313840, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8549568008195313840, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8549568008195313840, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8549568008195313840, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
       propertyPath: m_LocalPosition.x
       value: -318.74387
@@ -285911,6 +286023,10 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 13400000, guid: 7b057cd8de981f74097e85bd4870a529, type: 2}
+    - target: {fileID: 3489539086585915672, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -2432090755550338912, guid: ca4f25066f7646f4aabb75cb4f6159c7, type: 3}
     - target: {fileID: 5230614685329924451, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
       propertyPath: m_Name
       value: UFO (2)
@@ -285927,6 +286043,18 @@ PrefabInstance:
       propertyPath: UFOsHPBar
       value: 
       objectReference: {fileID: 1516525192}
+    - target: {fileID: 8549568008195313840, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8549568008195313840, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8549568008195313840, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8549568008195313840, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
       propertyPath: m_LocalPosition.x
       value: 73.256134
@@ -334276,6 +334404,10 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 13400000, guid: 7b057cd8de981f74097e85bd4870a529, type: 2}
+    - target: {fileID: 3489539086585915672, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -2432090755550338912, guid: ca4f25066f7646f4aabb75cb4f6159c7, type: 3}
     - target: {fileID: 5230614685329924451, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
       propertyPath: m_Name
       value: UFO (9)
@@ -334292,6 +334424,18 @@ PrefabInstance:
       propertyPath: UFOsHPBar
       value: 
       objectReference: {fileID: 2038242020}
+    - target: {fileID: 8549568008195313840, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8549568008195313840, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8549568008195313840, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8549568008195313840, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
       propertyPath: m_LocalPosition.x
       value: -114.743866
@@ -351828,6 +351972,10 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 13400000, guid: 7b057cd8de981f74097e85bd4870a529, type: 2}
+    - target: {fileID: 3489539086585915672, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -2432090755550338912, guid: ca4f25066f7646f4aabb75cb4f6159c7, type: 3}
     - target: {fileID: 5230614685329924451, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
       propertyPath: m_Name
       value: UFO (0)
@@ -351844,6 +351992,18 @@ PrefabInstance:
       propertyPath: UFOsHPBar
       value: 
       objectReference: {fileID: 243920718}
+    - target: {fileID: 8549568008195313840, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8549568008195313840, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8549568008195313840, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8549568008195313840, guid: 198ecb42bdcf4ef4497cba7a46bb9f61, type: 3}
       propertyPath: m_LocalPosition.x
       value: -114.743866

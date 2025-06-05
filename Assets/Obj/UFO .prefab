@@ -134,6 +134,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   CenterMoving: 1
   center: {fileID: 0}
+  HP: 0
 --- !u!114 &4379611517748022265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,7 +163,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f3bc717c87fd0145bd4b366e8f5f922, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 10
   UFOsHPBar: {fileID: 0}
   Player: {fileID: 0}
   Shrapnel: {fileID: 6086487838954467713, guid: ff18092e36846864e9eb9b71d3424e46, type: 3}
