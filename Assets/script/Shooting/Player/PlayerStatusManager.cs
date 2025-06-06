@@ -14,6 +14,8 @@ public class PlayerStatusManager : MonoBehaviour
     public bool ClickL = false;
 
     Vector2 MoveBasedY;
+    float verticalInput;
+    float verticalInputBoost;
 
     public GameObject CloseUFO;
     public GameObject SM;
@@ -31,27 +33,6 @@ public class PlayerStatusManager : MonoBehaviour
 
     void Update()
     {
-        PushW = MoveBasedY.y > 0;
-        PushS = MoveBasedY.y < 0;
-        PushA = MoveBasedY.x < 0;
-        PushD = MoveBasedY.x > 0;
-
-        if (Input.GetKeyDown(KeyCode.Q))
-            PushQ = true;
-        if (Input.GetKeyUp(KeyCode.Q))
-            PushQ = false;
-        if (Input.GetKeyDown(KeyCode.E))
-            PushE = true;
-        if (Input.GetKeyUp(KeyCode.E))
-            PushE = false;
-        if (Input.GetMouseButtonDown(0))
-            ClickL = true;
-        if (Input.GetMouseButtonUp(0))
-            ClickL = false;
-
-
-        if (Input.GetKeyDown(KeyCode.O))
-            ShootType = (ShootType + 1) % 3;
         
         CloseUFO = null;
         closestDistance = Mathf.Infinity;
@@ -84,8 +65,28 @@ public class PlayerStatusManager : MonoBehaviour
         IsContact = false;
     }
 
-    void OnMove(InputValue value)
+    void OnWASDMove(InputValue value)
     {
         MoveBasedY = value.Get<Vector2>();
+
+        PushW = MoveBasedY.y > 0;
+        PushS = MoveBasedY.y < 0;
+        PushA = MoveBasedY.x < 0;
+        PushD = MoveBasedY.x > 0;
+        PushQ = verticalInput > 0;
+        PushE = verticalInput < 0;
+    }
+    void OnQEMove(InputValue value)
+    {
+        verticalInput = value.Get<float>();
+    }
+    void OnBoost(InputValue value)
+    {
+        verticalInputBoost = value.Get<float>();
+        ClickL = verticalInputBoost > 0;
+    }
+    void OnChangeShootType(InputValue value)
+    {
+        ShootType = (ShootType + 1) % 3;
     }
 }

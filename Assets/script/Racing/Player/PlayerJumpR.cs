@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerJumpR : MonoBehaviour
 {
@@ -11,10 +12,6 @@ public class PlayerJumpR : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetMouseButtonDown(1))
-        {
-            IsJumping = true;
-        }
     }
 
     void FixedUpdate()
@@ -56,5 +53,8 @@ public class PlayerJumpR : MonoBehaviour
             IsJumping = false;
         }
     }
-
+    void OnJump(InputValue value)
+    {
+        IsJumping = value.isPressed;
+    }
 }

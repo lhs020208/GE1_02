@@ -11,7 +11,11 @@ public class RacingPlayerStatusManager : MonoBehaviour
     public bool PushD = false;
     public bool PushQ = false;
     public bool PushE = false;
-    Vector2 move;
+    public bool ClickL = false;
+
+    float verticalInputBoost;
+    Vector2 MoveBasedY;
+    float verticalInput;
 
     void Start()
     {
@@ -19,34 +23,12 @@ public class RacingPlayerStatusManager : MonoBehaviour
 
     void Update()
     {
-        if (move.y > 0)
-            PushW = true;
-        else
-            PushW = false;
-        if(move.y < 0)
-            PushS = true;
-        else
-            PushS = false;
-        if (move.x < 0)
-            PushA = true;
-        else
-            PushA = false;
-        if (move.x > 0)
-            PushD = true;
-        else
-            PushD = false;
-        if (Input.GetKeyDown(KeyCode.Q))
-            PushQ = true;
-        if (Input.GetKeyUp(KeyCode.Q))
-            PushQ = false;
-        if (Input.GetKeyDown(KeyCode.E))
-            PushE = true;
-        if (Input.GetKeyUp(KeyCode.E))
-            PushE = false;
-    }
-    void OnMove(InputValue value)
-    {
-        move = value.Get<Vector2>();
+        PushW = MoveBasedY.y > 0;
+        PushS = MoveBasedY.y < 0;
+        PushA = MoveBasedY.x < 0;
+        PushD = MoveBasedY.x > 0;
+        PushQ = verticalInput > 0;
+        PushE = verticalInput < 0;
     }
     void OnCollisionStay(Collision collision)
     {
@@ -57,4 +39,19 @@ public class RacingPlayerStatusManager : MonoBehaviour
     {
         IsGrounded = false;
     }
+
+    void OnWASDMove(InputValue value)
+    {
+        MoveBasedY = value.Get<Vector2>();
+    }
+    void OnQEMove(InputValue value)
+    {
+        verticalInput = value.Get<float>();
+    }
+    void OnBoost(InputValue value)
+    {
+        verticalInputBoost = value.Get<float>();
+        ClickL = verticalInputBoost > 0;
+    }
+
 }

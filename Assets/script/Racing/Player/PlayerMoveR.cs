@@ -28,13 +28,13 @@ public class PlayerMoveR : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Status.ClickL)
         {
             mouseMoving = true;
             moveDir = 1;
         }
 
-        if (Input.GetMouseButtonUp(0))
+        if (!Status.ClickL)
         {
             mouseMoving = false;
             moveDir = 0;

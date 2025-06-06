@@ -1,20 +1,18 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerJump : MonoBehaviour
 {
     PlayerStatusManager Status;
     bool IsJumping = false;
     public float JumpForce = 5.0f;
+
     void Start()
     {
         Status = GetComponent<PlayerStatusManager>();
     }
     void Update()
     {
-        if (Input.GetMouseButtonDown(1))
-        {
-            IsJumping = true;
-        }
     }
 
     void FixedUpdate()
@@ -56,5 +54,9 @@ public class PlayerJump : MonoBehaviour
             IsJumping = false;
         }
     }
-
+    void OnJump(InputValue value)
+    {
+        IsJumping = value.isPressed;
+    }
 }
+
