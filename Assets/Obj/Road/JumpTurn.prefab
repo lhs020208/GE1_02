@@ -48,6 +48,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5754084199372789682, guid: 2e7bdd13bda585443a87319776fdd72b, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -2432090755550338912, guid: c69ea98301a16f5489e47b73c4630ebd, type: 3}
     - target: {fileID: 919132149155446097, guid: 2e7bdd13bda585443a87319776fdd72b, type: 3}
       propertyPath: m_Name
       value: JumpTurn
@@ -97,7 +101,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: -462981019419857548, guid: 2e7bdd13bda585443a87319776fdd72b, type: 3}
+  m_Mesh: {fileID: -2432090755550338912, guid: c69ea98301a16f5489e47b73c4630ebd, type: 3}
 --- !u!54 &5106059609215423379
 Rigidbody:
   m_ObjectHideFlags: 0
